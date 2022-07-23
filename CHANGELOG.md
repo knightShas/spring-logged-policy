@@ -1,11 +1,11 @@
-#ChangeLog for Spring-logged-policy
+## ChangeLog for Spring-logged-policy
 
-#Date: 20 July 2022 
+## Date: 20 July 2022 
 ## @knightShas
 	Created the project
 	Added model package
 
-#Date: 21 July 2022 
+## Date: 21 July 2022 
 ## @knightShas
 	Added Controller, Repository, Model, Service, Exception packages;
 	Added required code for adding the logged policy data;
