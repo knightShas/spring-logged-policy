@@ -24,8 +24,8 @@ public class LoggedServiceImpl implements LoggedService {
 		return loggedRepo.findByAgentEmail(email);
 	}
 
-
-	
-	
-
+	@Override
+	public LoggedPolicy getPolicyDetail(String policyNo) {
+		return loggedRepo.findByPolicyNo(policyNo);
+	}
 }

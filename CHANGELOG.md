@@ -12,3 +12,7 @@
 	Added required code for reward system and fetching;
 	Initial commit:  Added sample api for logged policy and reward point with exception handling
 	
+## Date: 24 July 2022 
+## @knightShas
+	-New Policy Detail end-point created.
+	-Exception handling of reward point on empty list
