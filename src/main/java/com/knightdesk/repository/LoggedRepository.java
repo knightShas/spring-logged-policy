@@ -12,4 +12,6 @@ public interface LoggedRepository extends MongoRepository<LoggedPolicy, String> 
 	
 	public List<LoggedPolicy> findByAgentEmail(String email);
 	
+	public LoggedPolicy findByPolicyNo(String policyNo);
+	
 }

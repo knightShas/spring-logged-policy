@@ -9,6 +9,8 @@ public interface LoggedService {
 	public void addLoggedPolicy(LoggedPolicy policy);
 	
 	public List<LoggedPolicy> findAllByAgentEmail(String email);
+	
+	public LoggedPolicy getPolicyDetail(String policyNo);
 
 
 }

@@ -1,9 +1,11 @@
 package com.knightdesk.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import com.knightdesk.service.LoggedService;
 
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/jdbank")
 public class LoggedController {
 	
@@ -57,19 +60,28 @@ public class LoggedController {
 	@GetMapping("/policy_detail/{email}")
 	public List<LoggedPolicy> getAllLoggedPolicy(@PathVariable String email){
 		List<LoggedPolicy> loggedPolicy = loggedPolicyService.findAllByAgentEmail(email);
+		ArrayList<LoggedPolicy> newList = new ArrayList<>(loggedPolicy.size());
 		if(loggedPolicy.isEmpty()) {
 			throw new EmptyListException();
 		}
-		else {			
-			return loggedPolicy;
+		else {	
+			for(int i = loggedPolicy.size()-1; i >= 0  ; i--) {
+				newList.add(loggedPolicy.get(i));
+			}
+			return newList;
 		}
+	}
+	
+	@GetMapping("/policy/detail/{policyNo}")
+	public LoggedPolicy getPolicyDetail(@PathVariable String policyNo) {
+		return loggedPolicyService.getPolicyDetail(policyNo);
 	}
 	
 	@GetMapping("/reward/{email}")
 	public int getReward(@PathVariable String email) {
 		List<LoggedPolicy> loggedPolicy = loggedPolicyService.findAllByAgentEmail(email);
 		if(loggedPolicy.isEmpty()) {
-			throw new EmptyListException();
+			return 0;
 		}
 		else {
 			int total=0;
