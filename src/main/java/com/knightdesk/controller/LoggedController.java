@@ -91,5 +91,24 @@ public class LoggedController {
 			return total;
 		}
 	}
+	
+	
+	@GetMapping("/top")
+	public String getTopReward() {
+		List<LoggedPolicy> loggedPolicyList = loggedPolicyService.findAllLoggedPolicy();
+		LoggedPolicy loggedPolicy = new LoggedPolicy();
+		int largeRewardPoint = 0;
+		@SuppressWarnings("unused")
+		String email = "";
+		for(int i = loggedPolicyList.size()-1; i >= 0 ; i--) {
+			loggedPolicy = loggedPolicyList.get(i);
+			int rewardPoint = getReward(loggedPolicy.getAgentEmail());
+			if(largeRewardPoint < rewardPoint) {
+				largeRewardPoint = rewardPoint;
+				email = loggedPolicy.getAgentEmail();
+			}
+		}
+		return email;
+	}
 
 }
