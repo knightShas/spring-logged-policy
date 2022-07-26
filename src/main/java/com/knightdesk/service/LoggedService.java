@@ -11,6 +11,8 @@ public interface LoggedService {
 	public List<LoggedPolicy> findAllByAgentEmail(String email);
 	
 	public LoggedPolicy getPolicyDetail(String policyNo);
+	
+	public List<LoggedPolicy> findAllLoggedPolicy();
 
 
 }

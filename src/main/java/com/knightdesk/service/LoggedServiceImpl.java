@@ -28,4 +28,9 @@ public class LoggedServiceImpl implements LoggedService {
 	public LoggedPolicy getPolicyDetail(String policyNo) {
 		return loggedRepo.findByPolicyNo(policyNo);
 	}
+
+	@Override
+	public List<LoggedPolicy> findAllLoggedPolicy() {
+		return loggedRepo.findAll();
+	}
 }

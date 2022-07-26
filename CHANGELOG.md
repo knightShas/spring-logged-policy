@@ -16,3 +16,7 @@
 ## @knightShas
 	-New Policy Detail end-point created.
 	-Exception handling of reward point on empty list
+	
+## Date: 26 July 2022 
+## @knightShas
+	-New End-point added for highest reward collected email
