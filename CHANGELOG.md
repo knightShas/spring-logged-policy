@@ -20,3 +20,8 @@
 ## Date: 26 July 2022 
 ## @knightShas
 	-New End-point added for highest reward collected email
+
+
+## Date: 29 July 2022 
+## @knightShas
+	-Added test cases in test file.
